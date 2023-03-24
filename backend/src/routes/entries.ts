@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.get("/", EntriesController.getEntries);
 
+router.get("/:entryId", EntriesController.getEntry);
+
 router.post("/", EntriesController.createEntries);
 
 export default router;
