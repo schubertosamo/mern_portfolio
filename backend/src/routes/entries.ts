@@ -9,4 +9,8 @@ router.get("/:entryId", EntriesController.getEntry);
 
 router.post("/", EntriesController.createEntries);
 
+router.patch("/:entryId", EntriesController.updateEntry);
+
+router.delete("/:entryId", EntriesController.deleteEntry);
+
 export default router;
