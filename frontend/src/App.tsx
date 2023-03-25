@@ -1,22 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Button } from "react-bootstrap";
+import { Entry } from "./models/entry";
 
 function App() {
-  const [clickCount, setClickCount] = useState(0);
+  const [entries, setEntries] = useState<Entry[]>([]);
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello</p>
-        <Button onClick={() => setClickCount(clickCount + 1)}>
-          Click {clickCount} times
-        </Button>
-      </header>
-    </div>
-  );
+  useEffect(() => {
+    async function loadEntry() {
+      try {
+        const response = await fetch("/api/entries", {
+          method: "GET",
+        });
+        const entries = await response.json();
+        setEntries(entries);
+      } catch (error) {
+        console.error(error);
+        alert(error);
+      }
+    }
+    loadEntry();
+  }, []);
+
+  return <div className="App">{JSON.stringify(entries)}</div>;
 }
 
 export default App;
