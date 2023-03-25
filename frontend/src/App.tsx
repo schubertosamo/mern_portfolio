@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { Button } from "react-bootstrap";
-import { Entry } from "./models/entry";
+import { Entry as EntryModel } from "./models/entry";
+import Entry from "./components/Entry";
 
 function App() {
-  const [entries, setEntries] = useState<Entry[]>([]);
+  const [entries, setEntries] = useState<EntryModel[]>([]);
 
   useEffect(() => {
     async function loadEntry() {
@@ -23,7 +22,13 @@ function App() {
     loadEntry();
   }, []);
 
-  return <div className="App">{JSON.stringify(entries)}</div>;
+  return (
+    <div className="App">
+      {entries.map((entry) => (
+        <Entry entry={entry} key={entry._id} />
+      ))}
+    </div>
+  );
 }
 
 export default App;
