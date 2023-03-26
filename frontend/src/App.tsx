@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
 import { Entry as EntryModel } from "./models/entry";
 import Entry from "./components/Entry";
+import { Container, Row } from "react-bootstrap";
 
 function App() {
   const [entries, setEntries] = useState<EntryModel[]>([]);
@@ -23,11 +23,13 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {entries.map((entry) => (
-        <Entry entry={entry} key={entry._id} />
-      ))}
-    </div>
+    <Container>
+      <Row xs={1} md={2} xl={3}>
+        {entries.map((entry) => (
+          <Entry entry={entry} key={entry._id} />
+        ))}
+      </Row>
+    </Container>
   );
 }
 

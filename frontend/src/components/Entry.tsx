@@ -1,3 +1,4 @@
+import styles from "../styles/Entry.module.css";
 import { Card } from "react-bootstrap";
 import { Entry as EntryModel } from "../models/entry";
 
@@ -6,10 +7,12 @@ interface EntryProps {
 }
 
 const Entry = ({ entry }: EntryProps) => {
+  const { title, text, createdAt, updatedAt } = entry;
   return (
-    <Card>
+    <Card className={styles.entryCard}>
       <Card.Body>
-        <Card.Title>{entry.title}</Card.Title>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text className={styles.entryCard}>{text}</Card.Text>
       </Card.Body>
     </Card>
   );

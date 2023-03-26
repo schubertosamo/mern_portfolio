@@ -1,0 +1,8 @@
+.entryCard {
+  background-color: cornsilk;
+  margin: 1rem;
+}
+
+.cardText {
+  white-space: pre-line;
+}
