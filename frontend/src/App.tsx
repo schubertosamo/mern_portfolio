@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Entry as EntryModel } from "./models/entry";
 import Entry from "./components/Entry";
-import { Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
+import styles from "./styles/EntryPage.module.css";
 
 function App() {
   const [entries, setEntries] = useState<EntryModel[]>([]);
@@ -24,9 +25,11 @@ function App() {
 
   return (
     <Container>
-      <Row xs={1} md={2} xl={3}>
+      <Row xs={1} md={2} xl={3} className="g-4">
         {entries.map((entry) => (
-          <Entry entry={entry} key={entry._id} />
+          <Col>
+            <Entry entry={entry} key={entry._id} className={styles.note} />
+          </Col>
         ))}
       </Row>
     </Container>

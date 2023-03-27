@@ -4,15 +4,16 @@ import { Entry as EntryModel } from "../models/entry";
 
 interface EntryProps {
   entry: EntryModel;
+  className?: string;
 }
 
-const Entry = ({ entry }: EntryProps) => {
+const Entry = ({ entry, className }: EntryProps) => {
   const { title, text, createdAt, updatedAt } = entry;
   return (
-    <Card className={styles.entryCard}>
+    <Card className={`${styles.entryCard} ${className}`}>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
-        <Card.Text className={styles.entryCard}>{text}</Card.Text>
+        <Card.Text className={styles.entryText}>{text}</Card.Text>
       </Card.Body>
     </Card>
   );
