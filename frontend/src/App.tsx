@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Entry as EntryModel } from "./models/entry";
 import Entry from "./components/Entry";
+import Navbar from "./components/Navbar/Navbar";
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "./styles/EntryPage.module.css";
 
@@ -24,15 +25,18 @@ function App() {
   }, []);
 
   return (
-    <Container>
-      <Row xs={1} md={2} xl={3} className="g-4">
-        {entries.map((entry) => (
-          <Col>
-            <Entry entry={entry} key={entry._id} className={styles.note} />
-          </Col>
-        ))}
-      </Row>
-    </Container>
+    <div>
+      <Navbar />
+    </div>
+    // <Container>
+    //   <Row xs={1} md={2} xl={3} className="g-4">
+    //     {entries.map((entry) => (
+    //       <Col>
+    //         <Entry entry={entry} key={entry._id} className={styles.note} />
+    //       </Col>
+    //     ))}
+    //   </Row>
+    // </Container>
   );
 }
 
