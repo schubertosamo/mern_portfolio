@@ -17,7 +17,7 @@ export const navbarListItems: navbarListItem[] = [
   {
     id: 2,
     icon: <Forum />,
-    label: "forum",
+    label: "Forum",
     route: "/",
   },
   {
