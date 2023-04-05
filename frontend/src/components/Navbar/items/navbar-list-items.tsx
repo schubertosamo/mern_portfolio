@@ -1,4 +1,4 @@
-import { navbarListItem } from "../../interfaces/navbar-interfaces";
+import { navbarListItem } from "../../../interfaces/navbar-interfaces";
 import {
   Person,
   TextSnippet,
@@ -14,13 +14,13 @@ export const navbarListItems: navbarListItem[] = [
     id: 0,
     icon: <Person />,
     label: "About me",
-    route: "/",
+    route: "/about",
   },
   {
     id: 1,
     icon: <TextSnippet />,
     label: "Posts",
-    route: "/",
+    route: "/posts",
   },
   {
     id: 2,
@@ -32,19 +32,19 @@ export const navbarListItems: navbarListItem[] = [
         id: 1,
         icon: <Code />,
         label: "Coding",
-        route: "/",
+        route: "/works/coding",
       },
       {
         id: 2,
         icon: <Piano />,
         label: "Music",
-        route: "/",
+        route: "/works/music",
       },
       {
         id: 3,
         icon: <PhotoCamera />,
-        label: "Photo",
-        route: "/",
+        label: "Photos",
+        route: "/works/photo",
       },
     ],
   },
@@ -52,6 +52,6 @@ export const navbarListItems: navbarListItem[] = [
     id: 3,
     icon: <Forum />,
     label: "Forum",
-    route: "/",
+    route: "/forum",
   },
 ];

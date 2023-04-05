@@ -14,7 +14,7 @@ import { ExpandLess, ExpandMore, Inbox, Menu } from "@mui/icons-material";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { navbarListItems } from "./items/navbar-list-items";
-import { redirect } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Collapse } from "@mui/material";
 
 const drawerWidth = 240;
@@ -30,6 +30,8 @@ interface Props {
 const Navbar = (props: Props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -49,7 +51,7 @@ const Navbar = (props: Props) => {
           <>
             {!item.subItems ? (
               <ListItem key={item.id} disablePadding>
-                <ListItemButton onClick={() => redirect(item.route)}>
+                <ListItemButton onClick={() => navigate(item.route)}>
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.label} />
                 </ListItemButton>
@@ -66,7 +68,7 @@ const Navbar = (props: Props) => {
                 <Collapse in={open} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
                     {item.subItems.map((subItem) => (
-                      <ListItemButton onClick={() => redirect(item.route)}>
+                      <ListItemButton onClick={() => navigate(item.route)}>
                         <ListItemIcon>{subItem.icon}</ListItemIcon>
                         <ListItemText primary={subItem.label} />
                       </ListItemButton>

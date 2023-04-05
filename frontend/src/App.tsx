@@ -4,6 +4,8 @@ import Entry from "./components/Entry";
 import Navbar from "./components/Navbar/Navbar";
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "./styles/EntryPage.module.css";
+import { Grid } from "@mui/material";
+import { Outlet } from "react-router-dom";
 
 function App() {
   const [entries, setEntries] = useState<EntryModel[]>([]);
@@ -25,9 +27,10 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <Grid container>
       <Navbar />
-    </div>
+      <Outlet />
+    </Grid>
     // <Container>
     //   <Row xs={1} md={2} xl={3} className="g-4">
     //     {entries.map((entry) => (
