@@ -5,4 +5,5 @@ export interface navbarListItem {
   icon: React.ReactNode;
   label: string;
   route: string;
+  subItems?: navbarListItem[];
 }
