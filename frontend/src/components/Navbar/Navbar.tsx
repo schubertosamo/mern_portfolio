@@ -14,7 +14,7 @@ import { ExpandLess, ExpandMore, Inbox, Menu } from "@mui/icons-material";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { navbarListItems } from "./items/navbar-list-items";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Collapse } from "@mui/material";
 
 const drawerWidth = 240;
@@ -51,7 +51,12 @@ const Navbar = (props: Props) => {
           <>
             {!item.subItems ? (
               <ListItem key={item.id} disablePadding>
-                <ListItemButton onClick={() => navigate(item.route)}>
+                <ListItemButton
+                  onClick={() => {
+                    navigate(item.route);
+                    handleDrawerToggle();
+                  }}
+                >
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.label} />
                 </ListItemButton>
@@ -92,6 +97,7 @@ const Navbar = (props: Props) => {
         position="fixed"
         sx={{
           width: { sm: `calc(100% )` },
+          // backgroundColor: "gray",
         }}
       >
         <Toolbar
@@ -108,27 +114,13 @@ const Navbar = (props: Props) => {
             edge="end"
             onClick={handleDrawerToggle}
             sx={{
-              mr: 0,
-              //display: { sm: "none" },
-              float: "right",
+              position: "absolute",
+              right: "2rem",
             }}
           >
             <Menu />
           </IconButton>
         </Toolbar>
-        {/* <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="end"
-          onClick={handleDrawerToggle}
-          sx={{
-            mr: 0,
-            //display: { sm: "none" },
-            float: "right",
-          }}
-        >
-          <Menu />
-        </IconButton> */}
       </AppBar>
       <Box
         component="nav"
