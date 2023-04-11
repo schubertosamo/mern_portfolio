@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import CommonButton from "../../components/common/button/CommonButton";
 import { LinkedIn, Instagram, Twitter, GitHub } from "@mui/icons-material";
+import { Icon } from "@iconify/react";
 import ProfilePicture from "../../assets/images/profile-picture.png";
 
 const useStyles = {
@@ -70,6 +71,13 @@ const About = () => {
               </Button>
               <Button href="https://github.com/schubertosamo" target="_blank">
                 <GitHub />
+              </Button>
+              <Button
+                href="https://social.vivaldi.net/@schubertosamo"
+                target="_blank"
+              >
+                <Icon icon="mdi:mastodon" />
+                {/* todo adjust icon size */}
               </Button>
               <Button
                 href="https://www.instagram.com/schubert_osamo"

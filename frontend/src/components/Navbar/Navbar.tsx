@@ -92,78 +92,81 @@ const Navbar = (props: Props) => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "float" }}>
-      <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% )` },
-          // backgroundColor: "gray",
-        }}
-      >
-        <Toolbar
+    <React.Fragment>
+      <CssBaseline />
+      <Box sx={{ display: "float" }}>
+        <AppBar
+          position="fixed"
           sx={{
-            width: { sm: `calc(100%)` },
+            width: { sm: `calc(100% )` },
+            // backgroundColor: "gray",
           }}
         >
-          <Typography variant="h6" noWrap component="div">
-            Shu Matsunaga's page
-          </Typography>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerToggle}
+          <Toolbar
             sx={{
-              position: "absolute",
-              right: "2rem",
+              width: { sm: `calc(100%)` },
             }}
           >
-            <Menu />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <Box
-        component="nav"
-        sx={{
-          width: { sm: drawerWidth },
-          flexShrink: { sm: 0 },
-          position: "absolute",
-          right: 0,
-        }}
-        aria-label="menu"
-      >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Drawer
-          anchor="right"
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
+            <Typography variant="h6" noWrap component="div">
+              Shu Matsunaga's page
+            </Typography>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="end"
+              onClick={handleDrawerToggle}
+              sx={{
+                position: "absolute",
+                right: "2rem",
+              }}
+            >
+              <Menu />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <Box
+          component="nav"
           sx={{
-            display: "block",
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
+            width: { sm: drawerWidth },
+            flexShrink: { sm: 0 },
+            position: "absolute",
+            right: 0,
+          }}
+          aria-label="menu"
+        >
+          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+          <Drawer
+            anchor="right"
+            container={container}
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+            sx={{
+              display: "block",
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+              },
+            }}
+          >
+            {drawer}
+          </Drawer>
+        </Box>
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            p: 3,
+            width: { sm: `calc(100% - ${drawerWidth}px)` },
           }}
         >
-          {drawer}
-        </Drawer>
+          <Toolbar />
+        </Box>
       </Box>
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-        }}
-      >
-        <Toolbar />
-      </Box>
-    </Box>
+    </React.Fragment>
   );
 };
 

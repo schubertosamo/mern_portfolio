@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Entry as EntryModel } from "./models/entry";
 import Entry from "./components/Entry";
 import Navbar from "./components/Navbar/Navbar";
-import { Col, Container, Row } from "react-bootstrap";
 import { Grid } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
